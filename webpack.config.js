@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = () => {
   return {
-    entry: './src/index.js',
+    entry: './index.js',
     output: {
       filename: 'bundle.js',
       publicPath: "auto",
@@ -24,23 +24,21 @@ module.exports = () => {
     },
     plugins: [
       new ModuleFederationPlugin({
-
-        // For remotes (please adjust)
         name: "react",
         library: {
           type: "var",
           name: "react"
         },
-        filename: "remoteEntry.js", // <-- Meta Data
+        filename: "remoteEntry.js",
         exposes: {
-          './web-components': './src/App.js',
-          './counter-component': './src/components/Counter/index.js',
+          './mf-react': './App.js',
+          './counter-component': './components/Counter/index.js',
         },
         shared: ["react", "react-dom"]
       }),
       new CopyWebpackPlugin({
         patterns: [{
-          from: './public/*.html'
+          from: './*.html'
         }]
       })
     ],

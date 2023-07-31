@@ -2,7 +2,7 @@
   "name": "remote-react",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode=development --devtool=source-map",
     "build": "webpack --mode=production"
