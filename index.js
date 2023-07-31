@@ -1,3 +1,3 @@
 // For local import here
-import('./App');
+import('./microfrontends/Clients');
 import('./components/Counter');

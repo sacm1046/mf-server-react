@@ -31,8 +31,7 @@ module.exports = () => {
         },
         filename: "remoteEntry.js",
         exposes: {
-          './mf-react': './App.js',
-          './counter-component': './components/Counter/index.js',
+          './clients-module': './microfrontends/Clients/index.js',
         },
         shared: ["react", "react-dom"]
       }),

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const componentTagName = "co-react-counter"
+const TAG_NAME = "co-react-counter"
 
-const Counter = () => {
+function Counter () {
   const [counter, setCounter] = useState(0)
   return (
     <>
@@ -20,4 +20,4 @@ class ReactMfe extends HTMLElement {
   }
 }
 
-customElements.define(componentTagName, ReactMfe);
+customElements.define(TAG_NAME, ReactMfe);
