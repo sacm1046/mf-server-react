@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import reactLogo from '../../assets/images/react.png'
-import './index.css'
+import './index.scss'
 
 const TAG_NAME = "mf-react-clients"
 
