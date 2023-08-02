@@ -1,26 +1,32 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-module.exports = () => {
+const config = () => {
   return {
     entry: './index.js',
     output: {
       filename: 'bundle.js',
-      publicPath: "auto",
+      publicPath: "http://localhost:4202/",
       uniqueName: "mfe4"
     },
     module: {
-      rules: [{
-        test: /.js$/,
-        exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-            presets: ['@babel/react', '@babel/env']
-          }
-        }, ],
-      }, ],
+      rules: [
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /.js$/,
+          exclude: /node_modules/,
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              presets: ['@babel/react', '@babel/env']
+            }
+          },],
+        }
+      ],
     },
     plugins: [
       new ModuleFederationPlugin({
@@ -31,7 +37,8 @@ module.exports = () => {
         },
         filename: "remoteEntry.js",
         exposes: {
-          './clients-module': './microfrontends/Clients/index.js',
+          './ClientsModule': './microfrontends/Clients/index.js',
+          './CounterModule': './components/Counter/index.js',
         },
         shared: ["react", "react-dom"]
       }),
@@ -46,3 +53,5 @@ module.exports = () => {
     }
   }
 }
+
+module.exports = config

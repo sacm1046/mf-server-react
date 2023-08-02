@@ -1,0 +1,35 @@
+.counter__container{
+    box-shadow: 5px 5px 15px rgb(225, 225, 225);
+    height: 150px;
+    width: 100px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.counter__actions{
+    display: flex;
+    gap: 10px;
+}
+
+.counter__action{
+    border: none;
+    background-color: crimson;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    transition: 200ms;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter__action:hover{
+    background-color: rgb(145, 0, 29);
+    cursor: pointer;
+}

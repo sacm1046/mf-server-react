@@ -9,6 +9,6 @@ class ReactMfe extends HTMLElement {
   connectedCallback() {
 ReactDOM.render(<App />, this);
   }
-} 
+}
 
 customElements.define(tagName, ReactMfe);
