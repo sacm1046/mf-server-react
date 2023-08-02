@@ -16,6 +16,18 @@ const config = () => {
           use: ['style-loader', 'css-loader'],
         },
         {
+          test: /\.(png|jpg|jpeg|gif|svg)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[hash].[ext]',
+                outputPath: 'images', // Carpeta de destino para las imágenes en el directorio de salida
+              },
+            },
+          ],
+        },
+        {
           test: /.js$/,
           exclude: /node_modules/,
           use: [{
